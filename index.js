@@ -7,6 +7,7 @@ const users = require('./users/users')
 const server = express()
 server.use(express.json())
 server.use(cors())
+const PORT = process.env.PORT || 9000
 
 server.get('/api/user', (req,res)=>{
     res.json({data: users})
@@ -39,6 +40,6 @@ server.post('/api/login', (req,res)=>{
     res.status(404).json({message: "user or password is not correct !"})
     
 })
-server.listen(process.env.PORT, ()=>{
-    console.log('listening on Port ', process.env.PORT)
+server.listen(PORT, ()=>{
+    console.log('listening on Port ', PORT)
 })
